@@ -1,0 +1,20 @@
+server:
+  type: default
+  maxThreads: 512
+  minThreads: 256
+  applicationConnectors:
+    - type: http
+      port: 16000
+  adminConnectors:
+    - type: http
+      port: 17000
+  requestLog:
+    appenders:
+      - type: file
+        currentLogFilename: /var/log/flipkart/raw-maverick/access.log
+        threshold: INFO
+        archive: true
+        archivedLogFilenamePattern: /var/log/flipkart/raw-maverick/access-%i.log.gz
+        archivedFileCount: 10
+        timeZone: IST
+        maxFileSize: 10MB
